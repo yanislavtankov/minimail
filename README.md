@@ -4,21 +4,12 @@
 <img height="80" src="https://cdn.worldvectorlogo.com/logos/element-ui-1.svg">
 </p>
 
-#### This is a basement for a large modular SPA, that utilises Laravel, Vue, ElementUI, Bootstrap. 
-#### CRUD generator is integrated in project creates standalone modules on the frontend and backend.
+#### This is a Example email sending app. 
+#### Test assignment based on  https://github.com/Yurich84/laravel-vue-spa-skeleton.git
 
 <p align="center">
-    <img width="100%" src="https://i.imgur.com/VNa5jOg.png" >
+    <img width="100%" src="https://newmark.bg/minimail/minimail.jpg" >
 </p>
-
-The main goals of the project are:
-- to avoid hard cohesion between modules
-- to form the basis for writing clean code
-- to be easy to expand
-- to avoid code duplication
-- to reduce the start time of the project
-- to reduce the time of project support and code navigation
-- to be understandable for an inexperienced programmer
 
 ## Extensions
 
@@ -33,8 +24,8 @@ The main goals of the project are:
 - [Bootstrap 4](https://getbootstrap.com) css
 
 ## Install
-- `git clone https://github.com/Yurich84/laravel-vue-spa-skeleton.git`
-- `cd laravel-vue-spa-skeleton`
+- `git clone https://github.com/yanislavtankov/minimail.git`
+- `cd YOUR_DIRECTORY`
 - `composer install`
 - `cp .env.example .env` - copy .env file
 - set your DB credentials in `.env`
