@@ -4,7 +4,7 @@
 <img height="80" src="https://cdn.worldvectorlogo.com/logos/element-ui-1.svg">
 </p>
 
-#### This is a Example email sending app. 
+#### This is an Example email sending app. 
 #### Test assignment based on  https://github.com/Yurich84/laravel-vue-spa-skeleton.git
 
 <p align="center">
