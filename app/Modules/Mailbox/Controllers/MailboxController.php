@@ -9,6 +9,7 @@ use App\Models\Maillist;
 use Illuminate\Http\Request;
 use SimpleHtmlToText\Parser;
 use \Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
@@ -68,17 +69,29 @@ class MailboxController extends Controller
             $contact->save();
         }
         $mailbox->save();
+        
+        // $emailId = $mailbox->id;
+        // $emailBox = Mailbox::findOrFail($mailbox->id);
+        
+        $message = (new sendMail($mailbox))
+            ->onConnection('database')
+            ->onQueue('default');
+        $queueResponse = Mail::to($mailbox->to)
+            ->queue($message);
+        $status = (isset($queueResponse)) ? "sent" : "failed";
+        $job_id = (isset($queueResponse)) ? $queueResponse : null;
 
-        $email = Mailbox::findOrFail($mailbox->id);
-        Mail::to($mailbox->to)
-            ->queue(new sendMail($email));
 
+        DB::table('mailboxes')
+            ->where('id', $mailbox->id)
+            ->update(['status' => $status, 'job_id' => $job_id]);
 
 
 
         return response()->json([
             'type' => self::RESPONSE_TYPE_SUCCESS,
-            'message' => 'Successfully queued'
+            'message' => 'Successfully queued',
+            'queuejobid' => $queueResponse,
         ]);
     }
 

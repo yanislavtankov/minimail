@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Queue;
 use Laravel\Dusk\DuskServiceProvider;
+use Illuminate\Support\ServiceProvider;
+
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,6 +30,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        Queue::failing(function ($connection, $job, $data) {
+
+            // $affected = DB::table('mailboxes')
+            //     ->where('id', 105)
+            //     ->update(['text' => $data]);
+
+
+
+            // Notify team of failing job...
+        });
     }
 }

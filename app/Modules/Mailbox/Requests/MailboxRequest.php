@@ -32,6 +32,7 @@ class MailboxRequest extends FormRequest
             Mailbox::COLUMN_HTML => 'required|string',
             Mailbox::COLUMN_ATTACHMENT => 'string',
             Mailbox::COLUMN_STATUS => 'string',
+            Mailbox::COLUMN_JOB_ID => 'integer',
         ];
     }
 }

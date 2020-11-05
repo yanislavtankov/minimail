@@ -18,6 +18,7 @@ class Mailbox extends Model
     const COLUMN_HTML           = 'html';
     const COLUMN_ATTACHMENT     = 'attachment';
     const COLUMN_STATUS         = 'status';
+    const COLUMN_JOB_ID         = 'job_id';
 
      /**
      * The attributes that are mass assignable.
@@ -32,6 +33,7 @@ class Mailbox extends Model
         self::COLUMN_HTML,
         self::COLUMN_ATTACHMENT,
         self::COLUMN_STATUS,
+        self::COLUMN_JOB_ID,
     ];   
 
 
